@@ -15,8 +15,25 @@ app.get('/status', (req, res) => {
 });
 
 
+app.get('/info', (req, res) => {
+    res.json({
+        name: "Ajit's Deployment App",
+        version: "1.0.0",
+        author: "Ajit Mangsulikar"
+    });
+});
+
+
+app.use((req, res) => {
+    res.status(404).json({
+        error: "Route not found"
+    });
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
 
 
